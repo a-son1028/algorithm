@@ -10,8 +10,8 @@ python3 api.py
 > now Running on http://127.0.0.1:5000
 ## Function
 
-> /EM/predict
-> /SVM/LinearSVC/predict
+-  /EM/predict
+-  /SVM/LinearSVC/predict
 
 #### example
 ```sh
