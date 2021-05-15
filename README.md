@@ -1,5 +1,4 @@
-# ToyPythonML
-
+# ✨✨✨✨✨✨✨✨✨ToyPythonML✨✨✨✨✨✨✨✨✨
 ## Compatibility
 make sure you installed api/requirements.txt
 ## Run project
@@ -11,18 +10,19 @@ python3 api.py
 > now Running on http://127.0.0.1:5000
 ## Function
 
-### /EM/predict
-### /SVM/LinearSVC/predict
+> /EM/predict
+> /SVM/LinearSVC/predict
 
 #### example
 ```sh
 curl --location --request GET 'http://localhost:5000/EM/predict' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "train":  [["x","x","label"],["x","x","label"],["x","x","label"]],
+    "train":  [["x","x","labeled"],["x","x","labeled"],["x","x","labeled"]],
     "test": [["x","x","label"],["x","x","label"],["x","x","label"]]
 }'
 ```
+if test Set data is unlabel, you need to add label is nil
 >return
 ```sh
 {
