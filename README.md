@@ -1,4 +1,4 @@
-# ✨✨✨✨✨✨✨✨✨ToyPythonML✨✨✨✨✨✨✨✨✨
+# ✨ToyPythonML✨
 ## Compatibility
 make sure you installed api/requirements.txt
 ## Run project
