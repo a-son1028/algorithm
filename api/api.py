@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
-@app.route('/EM/predict', methods=['GET'])
+@app.route('/EM/predict', methods=['POST'])
 def predict():
     try:
         Xtrain, yTran, Xtest, yTest = separateData(request.json)
@@ -28,7 +28,7 @@ def predict():
         return jsonify({"mess": ValueError, "status": "false"})
 
 
-@app.route('/SVM/LinearSVC/predict', methods=['GET'])
+@app.route('/SVM/LinearSVC/predict', methods=['POST'])
 def predictSVM():
     try:
         Xtrain, yTran, Xtest, yTest = separateData(request.json)

@@ -15,7 +15,7 @@ python3 api.py
 
 #### example
 ```sh
-curl --location --request GET 'http://localhost:5000/EM/predict' \
+curl --location --request POST 'http://localhost:5000/EM/predict' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "train":  [["x","x","labeled"],["x","x","labeled"],["x","x","labeled"]],
