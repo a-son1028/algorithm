@@ -21,11 +21,11 @@ def separateData(contentRequest):
         XXTrain = np.array(contentRequest['train'])
         XXTest = np.array(contentRequest['test'])
         #Labeled
-        X_train = XXTrain[:, 2:-1]
+        X_train = XXTrain[:, 1:-1]
         y_train = XXTrain[:, -1:]
 
         #Un Labeled
-        X_test = XXTest[:, 2:-1]
+        X_test = XXTest[:, 1:-1]
         y_test = XXTest[:, -1:]
         return X_train, y_train, X_test, y_test
     except ValueError:
