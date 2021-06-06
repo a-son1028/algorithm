@@ -12,7 +12,12 @@ python3 api.py
 
 -  /EM/predict
 -  /SVM/LinearSVC/predict
-
+-  /ML/:algorithm_name
+```algorithm_name is
+    - GradientBoostingClassifier
+    - AdaBoostClassifier
+    - GradientBoostingRegressor
+```
 #### example
 ```sh
 curl --location --request POST 'http://localhost:5000/EM/predict' \
