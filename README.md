@@ -13,7 +13,8 @@ python3 api.py
 -  /EM/predict
 -  /SVM/LinearSVC/predict
 -  /ML/:algorithm_name
-```algorithm_name is
+```
+    #algorithm_name is
     - GradientBoostingClassifier
     - AdaBoostClassifier
     - GradientBoostingRegressor
