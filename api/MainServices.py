@@ -81,3 +81,39 @@ def autoIncreateSVMLinearSVC(Xtrain, yTrain, Xtest, yTest):
         return resultY, bgm.score(Xtest, yTest)
     except ValueError:
         return ValueError
+
+# áp dụng giải thuật trainning và return về score tương ứng
+##### str là tên của giai thuật áp dụng có thể là ["GradientBoostingClassifier","AdaBoostClassifier", "GradientBoostingRegressor", LinearSVC]
+##### X_train các vector dùng để train
+##### y_train lable dữ liệu để train
+##### X_test các vector dùng để test
+##### y_test lable y test
+def trainnning(str, X_train, y_train):
+    if(str == "GradientBoostingClassifier"):
+        clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0,
+            max_depth=1, random_state=0).fit(X_train, y_train)
+    elif(str=="AdaBoostClassifier"):
+        clf = AdaBoostClassifier(n_estimators=100).fit(X_train, y_train)
+    elif(str=="GradientBoostingRegressor"):
+        clf = GradientBoostingRegressor(n_estimators=100, learning_rate=0.1,
+                    max_depth=1, random_state=0, loss='ls').fit(X_train, y_train)
+    elif(str=="LinearSVC"):
+        clf =make_pipeline(StandardScaler(),LinearSVC(random_state=0, tol=1e-5)).fit(X_train,y_train)
+    return clf
+
+def autoIncreateML(algorithmName,Xtrain, yTrain, Xtest, yTest):
+    try:
+        X_train_impro = Xtrain
+        y_train_impro = yTrain
+
+        resultY = np.array([])
+        for xAdding in Xtest:
+            clf = trainnning(algorithmName,Xtrain, yTrain)
+            predict = clf.predict(np.array([xAdding]))
+            X_train_impro = addNewItem(X_train_impro, np.array([xAdding])[0])
+            y_train_impro = addNewItem(y_train_impro, predict)
+            resultY = addNewItem(resultY, predict)
+        finalCLF = trainnning(algorithmName, X_train_impro, y_train_impro)
+        return resultY, finalCLF.score(Xtest, yTest)
+    except ValueError:
+        return ValueError

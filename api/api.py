@@ -1,6 +1,6 @@
 import flask
 from flask import request, jsonify
-from MainServices import separateData, addNewItem, autoIncreateEM, autoIncreateSVMLinearSVC
+from MainServices import separateData, addNewItem, autoIncreateEM, autoIncreateSVMLinearSVC, autoIncreateML
 import numpy as np
 from sklearn.mixture import GaussianMixture
 
@@ -36,4 +36,14 @@ def predictSVM():
         return jsonify({"yPredict": resultY.tolist(), "score": score, "status": "success"})
     except ValueError:
         return jsonify({"mess": ValueError, "status": "false"})
+
+@app.route('/ML/<algorithm_name>', methods=['POST'])
+def predictMLAlgorithm(algorithm_name):
+    try:
+        Xtrain, yTran, Xtest, yTest = separateData(request.json)
+        resultY, score = autoIncreateML(algorithm_name,Xtrain, yTran, Xtest, yTest)
+        return jsonify({"yPredict": resultY.tolist(), "score": score, "status": "success"})
+    except ValueError:
+        return jsonify({"mess": ValueError, "status": "false"})
+
 app.run()
