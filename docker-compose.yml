@@ -9,7 +9,7 @@ services:
       - traefik-public
     deploy:
       # service resource management
-      resources:
+      # resources:
       # service restart policy
       # replicas: 4
       # update_config:
