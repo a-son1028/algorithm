@@ -1,12 +1,12 @@
 version: '3.7'
 services:
   algorithm-api:
-    image: untadee/algorithm-api:latest
-    # build: .
+    # image: untadee/algorithm-api:latest
+    build: .
     ports:
       - "5000:5000"
-    networks:
-      - traefik-public
+    # networks:
+    #   - traefik-public
     deploy:
       # service resource management
       # resources:
@@ -33,6 +33,6 @@ services:
         - traefik.http.routers.algorithm-api.entrypoints=https
         - traefik.http.routers.algorithm-api.tls=true
         - traefik.http.services.algorithm-api.loadbalancer.server.port=5000
-networks:
-  traefik-public:
-    external: true
+# networks:
+#   traefik-public:
+#     external: true
