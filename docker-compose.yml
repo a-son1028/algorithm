@@ -8,9 +8,7 @@ services:
     networks:
       - traefik-public
     deploy:
-      service resource management
-      resources:
-      service restart policy
+      # service resource management
       replicas: 2
       update_config:
         parallelism: 1
