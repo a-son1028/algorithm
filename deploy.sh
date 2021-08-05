@@ -1,1 +1,1 @@
-docker stack deploy -c api/docker-compose.yml algorithm-api
+docker stack deploy -c docker-compose.yml algorithm-api
