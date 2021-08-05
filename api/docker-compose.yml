@@ -1,7 +1,11 @@
 version: '3.7'
 services:
-  nodeserver:
+  algorithm-api:
     build: .
     ports:
       - "5000:5000"
     
+
+      # - traefik.http.routers.algorithm-public.rule=Host(`rais.dista.uninsubria.it`) && PathPrefix(`/algorithm/`)
+      # - traefik.http.routers.algorithm-public.service=algorithm-service
+      #       - traefik.http.services.algorithm-service.loadbalancer.server.url=http://localhost:5000
