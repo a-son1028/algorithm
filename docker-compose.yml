@@ -8,23 +8,23 @@ services:
     networks:
       - traefik-public
     deploy:
-      # service resource management
-      # resources:
-      # service restart policy
-      # replicas: 4
-      # update_config:
-      #   parallelism: 2
-      #   order: start-first
-      #   failure_action: rollback
-      #   delay: 10s
-      # rollback_config:
-      #   parallelism: 0
-      #   order: stop-first
-      # restart_policy:
-      #   condition: on-failure
-      #   delay: 5s
-      #   max_attempts: 3
-      #   window: 120s
+      service resource management
+      resources:
+      service restart policy
+      replicas: 2
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
+        delay: 10s
+      rollback_config:
+        parallelism: 0
+        order: stop-first
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
       labels:
         - traefik.enable=true
         - traefik.docker.network=traefik-public
