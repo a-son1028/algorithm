@@ -32,7 +32,7 @@ services:
         - traefik.http.routers.algorithm-api.rule=Host(`rais.dista.uninsubria.it`) && PathPrefix(`/algorithm`)
         - traefik.http.routers.algorithm-api.entrypoints=https
         - traefik.http.routers.algorithm-api.tls=true
-        - traefik.http.services.algorithm-api.loadbalancer.server.port=3333
+        - traefik.http.services.algorithm-api.loadbalancer.server.port=5000
 networks:
   webnet:
   traefik-public:
