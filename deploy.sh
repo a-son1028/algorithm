@@ -1,0 +1,1 @@
+docker stack deploy -c api/docker-compose.yml algoritm-service
